@@ -11,7 +11,7 @@ const PERMISSIONS = {
     intelligence: { read: true },
   },
   member: {
-    projects:   { create: true,  read: true,  update: true,  delete: false },
+    projects:   { create: false, read: true,  update: true,  delete: false },
     tasks:      { create: true,  read: true,  update: true,  delete: true  },
     members:    { create: false, read: true,  update: false, delete: false },
     analytics:  { read: true  },

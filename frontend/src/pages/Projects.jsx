@@ -36,10 +36,12 @@ function Projects() {
             {projects.length} project{projects.length !== 1 ? 's' : ''} · AI-powered insights for each
           </p>
         </div>
-        <button onClick={() => setShowCreateModal(true)} className="btn-primary">
-          <Plus size={17} />
-          New Project
-        </button>
+        {user?.role === 'admin' && (
+          <button onClick={() => setShowCreateModal(true)} className="btn-primary">
+            <Plus size={17} />
+            New Project
+          </button>
+        )}
       </div>
 
       {isLoading && projects.length === 0 ? (
@@ -47,7 +49,7 @@ function Projects() {
           <Loader2 size={28} className="text-brand-400 animate-spin" />
         </div>
       ) : projects.length === 0 ? (
-        <EmptyState onCreateClick={() => setShowCreateModal(true)} />
+        <EmptyState onCreateClick={user?.role === 'admin' ? () => setShowCreateModal(true) : null} />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           {projects.map(project => (
@@ -312,9 +314,11 @@ function EmptyState({ onCreateClick }) {
       <p className="text-slate-500 mb-6 max-w-sm">
         Create your first project and let NeuroFlow's intelligence engine predict outcomes and optimize your team's performance.
       </p>
-      <button onClick={onCreateClick} className="btn-primary">
-        <Plus size={17} /> Create First Project
-      </button>
+      {onCreateClick && (
+        <button onClick={onCreateClick} className="btn-primary">
+          <Plus size={17} /> Create First Project
+        </button>
+      )}
     </div>
   );
 }
