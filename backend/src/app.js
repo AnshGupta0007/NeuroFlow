@@ -20,10 +20,16 @@ const app = express();
 app.use(helmet());
 const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173')
   .split(',').map(s => s.trim());
+console.log('[CORS] Allowed origins:', allowedOrigins);
 const corsOptions = {
   origin: (origin, cb) => {
-    if (!origin || allowedOrigins.includes(origin)) cb(null, true);
-    else cb(null, false);
+    console.log('[CORS] Request origin:', JSON.stringify(origin));
+    // Allow if no origin (server-to-server), origin matches, or ends with railway.app
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.railway.app')) {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
   },
   credentials: true,
   optionsSuccessStatus: 200
