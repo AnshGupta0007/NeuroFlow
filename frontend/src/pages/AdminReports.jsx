@@ -39,7 +39,7 @@ function drawHeader(doc, title, subtitle) {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8);
   doc.setTextColor(...C.white);
-  doc.text('NeuroFlow', 30, 14.5, { align: 'center' });
+  doc.text('Collabrix', 30, 14.5, { align: 'center' });
   doc.setFontSize(18);
   doc.setTextColor(...C.white);
   doc.text(title, 12, 28);
@@ -109,7 +109,7 @@ function addPage(doc, title) {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8);
   doc.setTextColor(...C.slate300);
-  doc.text(`NeuroFlow  ·  ${title}`, 12, 9);
+  doc.text(`Collabrix  ·  ${title}`, 12, 9);
   doc.setTextColor(...C.slate500);
   doc.text(`Page ${doc.internal.getCurrentPageInfo().pageNumber}`, W - 12, 9, { align: 'right' });
   return 22;
@@ -122,7 +122,7 @@ function addFooter(doc) {
     doc.setPage(i);
     doc.setFontSize(7);
     doc.setTextColor(...C.slate700);
-    doc.text('NeuroFlow Team Intelligence  ·  Confidential', W / 2, 290, { align: 'center' });
+    doc.text('Collabrix Team Intelligence  ·  Confidential', W / 2, 290, { align: 'center' });
   }
 }
 
@@ -155,7 +155,7 @@ function generateOverviewPDF(data) {
     columnStyles: { 0: { cellWidth: 32 }, 1: { cellWidth: 44 }, 5: { textColor: C.emerald }, 6: { textColor: C.red } }
   });
   addFooter(doc);
-  doc.save(`neuroflow-overview-${format(new Date(), 'yyyy-MM-dd')}.pdf`);
+  doc.save(`collabrix-overview-${format(new Date(), 'yyyy-MM-dd')}.pdf`);
 }
 
 function generateProjectPDF(data, projectName) {
@@ -193,7 +193,7 @@ function generateProjectPDF(data, projectName) {
   });
   addFooter(doc);
   const safe = projectName.replace(/[^a-z0-9]/gi, '-').toLowerCase();
-  doc.save(`neuroflow-${safe}-${format(new Date(), 'yyyy-MM-dd')}.pdf`);
+  doc.save(`collabrix-${safe}-${format(new Date(), 'yyyy-MM-dd')}.pdf`);
 }
 
 // ── UI helpers ────────────────────────────────────────────────────────────────
@@ -392,7 +392,7 @@ function AdminReports() {
             <div className="space-y-2">
               {[
                 { label: 'File type', value: 'PDF (A4)' },
-                { label: 'Branding', value: 'NeuroFlow header' },
+                { label: 'Branding', value: 'Collabrix header' },
                 { label: 'Tables', value: 'Styled dark theme' },
                 { label: 'Pages', value: `~${Math.ceil((projects.length + 2) / 10) + 1} pages` },
               ].map(r => (

@@ -74,7 +74,7 @@ function AdminUsers() {
           <Shield size={22} className="text-brand-400" />
           <h1 className="text-2xl font-bold text-slate-100">User Management</h1>
         </div>
-        <p className="text-slate-500 text-sm">Manage all users, roles, and access across NeuroFlow</p>
+        <p className="text-slate-500 text-sm">Manage all users, roles, and access across Collabrix</p>
       </div>
 
       {/* Stats */}

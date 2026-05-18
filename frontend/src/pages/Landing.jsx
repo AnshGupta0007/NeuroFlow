@@ -136,7 +136,7 @@ function Landing() {
             <div className="w-9 h-9 bg-gradient-to-br from-brand-500 to-violet-500 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/30">
               <Brain size={18} className="text-white" />
             </div>
-            <span className="font-bold text-lg text-slate-100">NeuroFlow</span>
+            <span className="font-bold text-lg text-slate-100">Collabrix</span>
           </div>
 
           <div className="hidden md:flex items-center gap-1">
@@ -188,7 +188,7 @@ function Landing() {
           {/* Sub */}
           <p className="text-xl text-slate-400 max-w-2xl leading-relaxed mb-10 animate-fade-in"
             style={{ animationDelay: '0.2s' }}>
-            NeuroFlow combines AI predictions, behavioral analytics, and dependency intelligence
+            Collabrix combines AI predictions, behavioral analytics, and dependency intelligence
             to keep your projects on track — before problems even happen.
           </p>
 
@@ -432,7 +432,7 @@ function Landing() {
                 <StepCard number="2" title="Add tasks and dependencies"
                   description="Create tasks with priorities, estimates, and assignees. Link them with dependencies and the graph builds itself — topologically ordered." />
                 <StepCard number="3" title="Let the AI do the thinking"
-                  description="NeuroFlow tracks velocity, flags drift, and predicts delays. Ask the AI assistant anything — it reads your actual project data to answer." />
+                  description="Collabrix tracks velocity, flags drift, and predicts delays. Ask the AI assistant anything — it reads your actual project data to answer." />
               </div>
 
               {/* Visual side */}
@@ -546,7 +546,7 @@ function Landing() {
                   Start shipping smarter
                 </h2>
                 <p className="text-slate-400 text-lg mb-8 max-w-lg mx-auto leading-relaxed">
-                  Join teams using NeuroFlow to predict delays, balance workloads,
+                  Join teams using Collabrix to predict delays, balance workloads,
                   and make every sprint count.
                 </p>
                 <div className="flex items-center justify-center gap-4">
@@ -575,7 +575,7 @@ function Landing() {
               <div className="w-8 h-8 bg-gradient-to-br from-brand-500 to-violet-500 rounded-lg flex items-center justify-center">
                 <Brain size={16} className="text-white" />
               </div>
-              <span className="font-bold text-slate-400">NeuroFlow</span>
+              <span className="font-bold text-slate-400">Collabrix</span>
               <span className="text-slate-700 text-sm">— Team Intelligence Platform</span>
             </div>
             <p className="text-sm text-slate-700">Built with React, Supabase & Groq AI</p>

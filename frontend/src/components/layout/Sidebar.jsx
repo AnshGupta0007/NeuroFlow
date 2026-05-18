@@ -27,7 +27,7 @@ function Sidebar() {
             <Brain size={20} className="text-white" />
           </div>
           <div>
-            <h1 className="font-bold text-slate-100 text-base leading-tight">NeuroFlow</h1>
+            <h1 className="font-bold text-slate-100 text-base leading-tight">Collabrix</h1>
             <p className="text-[10px] text-slate-500 font-medium tracking-wider uppercase">Team Intelligence</p>
           </div>
         </div>

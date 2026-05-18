@@ -74,7 +74,7 @@ async function createUser(email, password, name, role) {
 // ─── main seed ──────────────────────────────────────────────────────────────
 
 async function seed() {
-  console.log('\n🌱 Seeding NeuroFlow...\n');
+  console.log('\n🌱 Seeding Collabrix...\n');
 
   await clean();
 
@@ -83,24 +83,24 @@ async function seed() {
 
   const PASSWORD = 'Password@123';
 
-  const alexId   = await createUser('alex@neuroflow.dev',   PASSWORD, 'Alex Johnson', 'admin');
-  const sarahId  = await createUser('sarah@neuroflow.dev',  PASSWORD, 'Sarah Chen',   'member');
-  const marcusId = await createUser('marcus@neuroflow.dev', PASSWORD, 'Marcus Williams', 'member');
-  const priyaId  = await createUser('priya@neuroflow.dev',  PASSWORD, 'Priya Patel',  'member');
-  const jordanId = await createUser('jordan@neuroflow.dev', PASSWORD, 'Jordan Smith', 'observer');
+  const alexId   = await createUser('alex@teampulse.dev',   PASSWORD, 'Alex Johnson', 'admin');
+  const sarahId  = await createUser('sarah@teampulse.dev',  PASSWORD, 'Sarah Chen',   'member');
+  const marcusId = await createUser('marcus@teampulse.dev', PASSWORD, 'Marcus Williams', 'member');
+  const priyaId  = await createUser('priya@teampulse.dev',  PASSWORD, 'Priya Patel',  'member');
+  const jordanId = await createUser('jordan@teampulse.dev', PASSWORD, 'Jordan Smith', 'observer');
 
   console.log('✓ 5 users created');
-  console.log('  admin   → alex@neuroflow.dev   / Password@123');
-  console.log('  member  → sarah@neuroflow.dev  / Password@123  (Fast Worker)');
-  console.log('  member  → marcus@neuroflow.dev / Password@123  (Consistent Worker)');
-  console.log('  member  → priya@neuroflow.dev  / Password@123  (Last-Minute Worker)');
-  console.log('  observer→ jordan@neuroflow.dev / Password@123  (Read-only)');
+  console.log('  admin   → alex@teampulse.dev   / Password@123');
+  console.log('  member  → sarah@teampulse.dev  / Password@123  (Fast Worker)');
+  console.log('  member  → marcus@teampulse.dev / Password@123  (Consistent Worker)');
+  console.log('  member  → priya@teampulse.dev  / Password@123  (Last-Minute Worker)');
+  console.log('  observer→ jordan@teampulse.dev / Password@123  (Read-only)');
 
   // ── 2. PROJECTS ───────────────────────────────────────────────────────────
   console.log('\nCreating projects...');
 
   const { data: p1 } = await supabaseAdmin.from('projects').insert({
-    name: 'NeuroFlow v2.0',
+    name: 'Collabrix v2.0',
     description: 'Next-gen release with real-time collaboration and advanced AI features.',
     status: 'active',
     deadline: daysFromNow(18),
@@ -111,7 +111,7 @@ async function seed() {
 
   const { data: p2 } = await supabaseAdmin.from('projects').insert({
     name: 'Mobile App Launch',
-    description: 'iOS & Android launch of the NeuroFlow companion app.',
+    description: 'iOS & Android launch of the Collabrix companion app.',
     status: 'active',
     deadline: daysFromNow(45),
     complexity_score: 54,
@@ -135,7 +135,7 @@ async function seed() {
   console.log('Adding members...');
 
   const memberRows = [
-    // Project 1 — NeuroFlow v2.0
+    // Project 1 — Collabrix v2.0
     { project_id: p1.id, user_id: alexId,   role: 'admin'  },
     { project_id: p1.id, user_id: sarahId,  role: 'member' },
     { project_id: p1.id, user_id: marcusId, role: 'member' },
@@ -153,7 +153,7 @@ async function seed() {
   await supabaseAdmin.from('project_members').insert(memberRows);
   console.log('✓ Members assigned');
 
-  // ── 4. TASKS — Project 1: NeuroFlow v2.0 ─────────────────────────────────
+  // ── 4. TASKS — Project 1: Collabrix v2.0 ─────────────────────────────────
   console.log('Creating tasks...');
 
   // Alex's completed tasks (admin — morning productivity pattern)
@@ -496,7 +496,7 @@ async function seed() {
   console.log('Creating activity logs...');
 
   await supabaseAdmin.from('activity_logs').insert([
-    { project_id: p1.id, user_id: alexId,   action: 'project_created',  metadata: { name: 'NeuroFlow v2.0' },          created_at: daysAgo(30) },
+    { project_id: p1.id, user_id: alexId,   action: 'project_created',  metadata: { name: 'Collabrix v2.0' },          created_at: daysAgo(30) },
     { project_id: p1.id, user_id: alexId,   action: 'member_added',     metadata: { userId: sarahId },                 created_at: daysAgo(29) },
     { project_id: p1.id, user_id: alexId,   action: 'member_added',     metadata: { userId: marcusId },                created_at: daysAgo(29) },
     { project_id: p1.id, user_id: alexId,   action: 'member_added',     metadata: { userId: priyaId },                 created_at: daysAgo(29) },
@@ -591,11 +591,11 @@ async function seed() {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log('Role      Email                    Password');
   console.log('──────────────────────────────────────────────');
-  console.log('Admin     alex@neuroflow.dev       Password@123');
-  console.log('Member    sarah@neuroflow.dev      Password@123  (Fast Worker, night owl)');
-  console.log('Member    marcus@neuroflow.dev     Password@123  (Consistent Worker, morning)');
-  console.log('Member    priya@neuroflow.dev      Password@123  (Last-Minute Worker)');
-  console.log('Observer  jordan@neuroflow.dev     Password@123  (Read-only)');
+  console.log('Admin     alex@teampulse.dev       Password@123');
+  console.log('Member    sarah@teampulse.dev      Password@123  (Fast Worker, night owl)');
+  console.log('Member    marcus@teampulse.dev     Password@123  (Consistent Worker, morning)');
+  console.log('Member    priya@teampulse.dev      Password@123  (Last-Minute Worker)');
+  console.log('Observer  jordan@teampulse.dev     Password@123  (Read-only)');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 }
 

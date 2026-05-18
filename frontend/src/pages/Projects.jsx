@@ -259,7 +259,7 @@ function CreateProjectModal({ onClose, onCreate }) {
             className="input"
             value={form.name}
             onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-            placeholder="e.g. NeuroFlow v2.0"
+            placeholder="e.g. Collabrix v2.0"
             required
             autoFocus
           />
@@ -312,7 +312,7 @@ function EmptyState({ onCreateClick }) {
       </div>
       <h3 className="text-lg font-semibold text-slate-300 mb-2">No projects yet</h3>
       <p className="text-slate-500 mb-6 max-w-sm">
-        Create your first project and let NeuroFlow's intelligence engine predict outcomes and optimize your team's performance.
+        Create your first project and let Collabrix's intelligence engine predict outcomes and optimize your team's performance.
       </p>
       {onCreateClick && (
         <button onClick={onCreateClick} className="btn-primary">

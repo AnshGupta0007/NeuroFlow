@@ -1,7 +1,7 @@
 {
-  "name": "neuroflow-backend",
+  "name": "collabrix-backend",
   "version": "1.0.0",
-  "description": "NeuroFlow Autonomous Team Intelligence System - Backend",
+  "description": "Collabrix Autonomous Team Intelligence System - Backend",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",

@@ -31,7 +31,7 @@ function Login() {
           <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-2xl shadow-brand-500/20">
             <Brain size={32} className="text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-slate-100">Welcome to NeuroFlow</h1>
+          <h1 className="text-2xl font-bold text-slate-100">Welcome to Collabrix</h1>
           <p className="text-slate-500 mt-1.5">Autonomous Team Intelligence System</p>
         </div>
 

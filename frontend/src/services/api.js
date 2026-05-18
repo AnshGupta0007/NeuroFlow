@@ -8,7 +8,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use(config => {
-  const token = localStorage.getItem('neuroflow_token');
+  const token = localStorage.getItem('teampulse_token');
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
@@ -18,7 +18,7 @@ api.interceptors.response.use(
   err => {
     const message = err.response?.data?.error || 'Something went wrong';
     if (err.response?.status === 401) {
-      localStorage.removeItem('neuroflow_token');
+      localStorage.removeItem('teampulse_token');
       window.location.href = '/login';
     } else if (err.response?.status !== 404) {
       toast.error(message);

@@ -370,7 +370,7 @@ async function askGrok(question, projectId, userId) {
     `- ${m.users?.name} (${m.role})`
   ).join('\n');
 
-  const systemPrompt = `You are a project management AI assistant for NeuroFlow.
+  const systemPrompt = `You are a project management AI assistant for Collabrix.
 Project context:
 Tasks:
 ${taskSummary || 'No tasks'}

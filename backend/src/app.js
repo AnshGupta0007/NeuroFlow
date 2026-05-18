@@ -45,7 +45,7 @@ app.use('/api/', limiter);
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString(), service: 'NeuroFlow API' });
+  res.json({ status: 'ok', timestamp: new Date().toISOString(), service: 'Collabrix API' });
 });
 
 // Routes
@@ -62,7 +62,7 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`NeuroFlow API running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
+  console.log(`Collabrix API running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
 });
 
 module.exports = app;

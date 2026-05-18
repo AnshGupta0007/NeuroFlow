@@ -4,12 +4,12 @@ import toast from 'react-hot-toast';
 
 const useAuthStore = create((set, get) => ({
   user: null,
-  token: localStorage.getItem('neuroflow_token'),
+  token: localStorage.getItem('teampulse_token'),
   isLoading: false,
   isInitialized: false,
 
   init: async () => {
-    const token = localStorage.getItem('neuroflow_token');
+    const token = localStorage.getItem('teampulse_token');
     if (!token) {
       set({ isInitialized: true });
       return;
@@ -18,7 +18,7 @@ const useAuthStore = create((set, get) => ({
       const res = await authAPI.getProfile();
       set({ user: res.data, token, isInitialized: true });
     } catch {
-      localStorage.removeItem('neuroflow_token');
+      localStorage.removeItem('teampulse_token');
       set({ user: null, token: null, isInitialized: true });
     }
   },
@@ -29,9 +29,9 @@ const useAuthStore = create((set, get) => ({
       const res = await authAPI.signUp(data);
       const { user, session } = res.data;
       if (session?.access_token) {
-        localStorage.setItem('neuroflow_token', session.access_token);
+        localStorage.setItem('teampulse_token', session.access_token);
         set({ user, token: session.access_token });
-        toast.success('Welcome to NeuroFlow!');
+        toast.success('Welcome to Collabrix!');
       } else {
         toast.success('Account created! Please check your email to verify.');
       }
@@ -48,7 +48,7 @@ const useAuthStore = create((set, get) => ({
 
       if (!session?.access_token) throw new Error('No session returned');
 
-      localStorage.setItem('neuroflow_token', session.access_token);
+      localStorage.setItem('teampulse_token', session.access_token);
       set({ user: user || null, token: session.access_token });
       toast.success(user ? `Welcome back, ${user.name}!` : 'Signed in!');
       return true;
@@ -64,7 +64,7 @@ const useAuthStore = create((set, get) => ({
     try {
       await authAPI.signOut();
     } finally {
-      localStorage.removeItem('neuroflow_token');
+      localStorage.removeItem('teampulse_token');
       set({ user: null, token: null });
       toast.success('Signed out');
     }
